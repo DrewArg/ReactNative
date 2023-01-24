@@ -1,12 +1,16 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
+
+import { Header } from "./components";
+import { StartGame } from "./screens";
 import { styles } from "./styles";
 
 const App = () => {
-    return (
-        <View style={styles.container}>
-            <Text>Hola manola</Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <Header title="Adivina el numero" />
+      <StartGame />
+    </View>
+  );
 };
 
 export default App;
