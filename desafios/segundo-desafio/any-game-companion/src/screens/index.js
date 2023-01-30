@@ -1,1 +1,1 @@
-export { default as StartGame } from "./start/index";
+export { default as Home } from "./home/index";
