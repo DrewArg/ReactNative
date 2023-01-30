@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
-        width: "90%",
+        width: "95%",
         justifyContent: "space-around",
         paddingTop: 20,
         borderBottomColor: "black",
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     },
     buttonContainer: {
         flexDirection: "row",
-        width: "50%",
-        justifyContent: "space-around"
+        width: "45%",
+        justifyContent: "space-between"
     }
 });

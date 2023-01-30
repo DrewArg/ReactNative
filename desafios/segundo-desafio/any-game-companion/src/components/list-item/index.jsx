@@ -7,8 +7,8 @@ const ListItem = ({ title, id }) => {
         <View style={styles.container}>
             <Text id={id}>{title}</Text>
             <View style={styles.buttonContainer}>
-                <Button title="Editar" onPress={() => null} color="#C4C9E9" />
-                <Button title="Borrar" onPress={() => null} color="#97A1D8" />
+                <Button title="Editar" onPress={() => null} color="#4E4D4D" />
+                <Button title="Borrar" onPress={() => null} color="#4E4D4D" />
             </View>
         </View>
     )
