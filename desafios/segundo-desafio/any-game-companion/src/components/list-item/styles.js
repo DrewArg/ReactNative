@@ -14,5 +14,10 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         width: "45%",
         justifyContent: "space-between"
-    }
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: "bold",
+        color: "#4E4D4D",
+    },
 });

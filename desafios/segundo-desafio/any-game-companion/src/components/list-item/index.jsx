@@ -3,12 +3,20 @@ import { styles } from "./styles";
 
 const ListItem = ({ title, id }) => {
 
+    const handleEditItem = () => {
+
+    }
+
+    const handleDeleteItem = () => {
+
+    }
+
     return (
         <View style={styles.container}>
-            <Text id={id}>{title}</Text>
+            <Text style={styles.title} id={id}>{title}</Text>
             <View style={styles.buttonContainer}>
-                <Button title="Editar" onPress={() => null} color="#4E4D4D" />
-                <Button title="Borrar" onPress={() => null} color="#4E4D4D" />
+                <Button title="Editar" onPress={() => handleEditItem} color="#4E4D4D" />
+                <Button title="Borrar" onPress={() => handleDeleteItem} color="#4E4D4D" />
             </View>
         </View>
     )
