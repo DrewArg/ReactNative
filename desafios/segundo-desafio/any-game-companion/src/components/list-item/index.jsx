@@ -1,15 +1,9 @@
 import { Text, View, Button } from "react-native"
 import { styles } from "./styles";
 
-const ListItem = ({ title, id }) => {
+const ListItem = ({ title, id, handleDeleteItem, handleEditItem }) => {
 
-    const handleEditItem = () => {
 
-    }
-
-    const handleDeleteItem = () => {
-
-    }
 
     return (
         <View style={styles.container}>
