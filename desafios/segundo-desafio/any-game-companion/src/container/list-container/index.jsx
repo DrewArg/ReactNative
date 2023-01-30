@@ -1,7 +1,5 @@
-import { View, Text } from "react-native"
+import { View } from "react-native"
 import { ListItem } from "../../components"
-import { styles } from "./styles";
-
 
 const ListContainer = () => {
 
