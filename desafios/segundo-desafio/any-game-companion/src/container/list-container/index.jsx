@@ -14,18 +14,29 @@ const ListContainer = () => {
         { id: '007', name: "Póker" },
     ];
 
-    const handleEditItem = (id, name) => {
+    const handleConfirm = (id, name) => {
+        if (!id) {
+            throw new Error("El ID es obligatorio")
+        }
 
+        let index = items.findIndex(i => i.id === id)
+        if (name) {
+            items[index].name = name
+        }
     }
 
     const handleDeleteItem = (id) => {
+        if (!id) {
+            throw new Error("El ID es obligatorio")
+        }
 
+        items.filter(i => { i.id !== id })
     }
 
     return (
         <View>
             {items.map((i) => (
-                <ListItem title={i.name} key={i.id} handleDeleteItem={handleDeleteItem} handleEditItem={handleEditItem} />
+                <ListItem title={i.name} key={i.id} handleDeleteItem={handleDeleteItem} handleConfirm={handleConfirm} id={i.id} />
             ))
             }
 
