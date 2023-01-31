@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors, fonts } from '../../constants/index'
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,16 +9,16 @@ export const styles = StyleSheet.create({
 
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#000",
+    fontSize: fonts.titleSize,
+    fontWeight: fonts.titleWeight,
+    color: colors.lightText,
     margin: 10
 
   },
   footnote: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "red",
+    fontSize: fonts.itemSize,
+    fontWeight: fonts.itemWeight,
+    color: colors.alertText,
     margin: 20
   }
 

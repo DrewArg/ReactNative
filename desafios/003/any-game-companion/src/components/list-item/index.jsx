@@ -29,7 +29,7 @@ const ListItem = ({ title, id, handleDeleteItem, handleConfirm }) => {
                     </View >
                     :
                     <View style={styles.container}>
-                        <Text style={styles.title} id={id}>{title}</Text>
+                        <Text style={styles.item} id={id}>{title}</Text>
                         <View style={styles.buttonContainer}>
                             <Button title="Editar" onPress={() => handleEditItem()} color="#4E4D4D" />
                             <Button title="Borrar" onPress={() => handleDeleteItem(id)} color="#4E4D4D" />

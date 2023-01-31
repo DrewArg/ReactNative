@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors, textInputs, fonts } from '../../constants/index'
 
 export const styles = StyleSheet.create({
     container: {
@@ -6,7 +7,7 @@ export const styles = StyleSheet.create({
         width: "95%",
         justifyContent: "space-around",
         paddingTop: 20,
-        borderBottomColor: "black",
+        borderBottomColor: colors.primary,
         borderBottomWidth: 1,
         paddingBottom: 20
     },
@@ -15,20 +16,20 @@ export const styles = StyleSheet.create({
         width: "45%",
         justifyContent: "space-between"
     },
-    title: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "#4E4D4D",
+    item: {
+        fontSize: fonts.itemSize,
+        fontWeight: fonts.itemWeight,
+        color: colors.lightText,
     },
     input: {
-        fontSize: 20,
-        fontWeight: "bold",
-        color: "#4E4D4D",
-        borderBottomColor: "4E4D4D",
-        borderBottomWidth: 2,
-        margin: 10,
-        minWidth: 75,
-        marginLeft: 10,
-        marginRight: 10
+        fontSize: fonts.inputSize,
+        fontWeight: fonts.inputWeight,
+        color: colors.primary,
+        borderBottomColor: colors.primary,
+        borderBottomWidth: textInputs.borderBottomWidth,
+        margin: textInputs.margin,
+        minWidth: textInputs.minWidth,
+        marginLeft: textInputs.marginLeft,
+        marginRight: textInputs.marginRight
     },
 });
