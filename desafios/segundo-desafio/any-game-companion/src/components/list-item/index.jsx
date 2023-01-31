@@ -20,7 +20,7 @@ const ListItem = ({ title, id, handleDeleteItem, handleConfirm }) => {
                         < TextInput
                             onChangeText={onChangeText}
                             value={text}
-                            style={styles.title}
+                            style={styles.input}
                         />
                         <View style={styles.buttonContainer}>
                             <Button title="Confirmar" onPress={() => { handleConfirm(id, text); setIsEditable(false) }} color="#4E4D4D" />
