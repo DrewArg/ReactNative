@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
     input: {
         fontSize: fonts.inputSize,
         fontWeight: fonts.inputWeight,
+        fontFamily: fonts.inputFamily,
         color: colors.primary,
         borderBottomColor: colors.primary,
         borderBottomWidth: textInputs.borderBottomWidth,

@@ -13,5 +13,6 @@ export const styles = StyleSheet.create({
     fontSize: fonts.titleSize,
     fontWeight: fonts.titleWeight,
     color: colors.darkText,
+    fontFamily: fonts.titleFamily
   },
 });

@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: fonts.titleSize,
     fontWeight: fonts.titleWeight,
+    fontfamily: fonts.titleFamily,
     color: colors.lightText,
     margin: 10
 

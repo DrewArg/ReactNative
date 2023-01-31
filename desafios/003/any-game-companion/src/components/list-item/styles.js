@@ -19,6 +19,7 @@ export const styles = StyleSheet.create({
     item: {
         fontSize: fonts.itemSize,
         fontWeight: fonts.itemWeight,
+        fontFamily: fonts.itemFamily,
         color: colors.lightText,
     },
     input: {
