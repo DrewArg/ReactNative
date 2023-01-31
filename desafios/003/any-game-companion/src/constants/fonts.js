@@ -1,13 +1,10 @@
 export default {
     inputSize: 20,
-    inputWeight: "normal",
-    inputFamily: "UbuntuMono-Italic",
+    inputFamily: "UbuntuMonoItalic",
 
     titleSize: 25,
-    titleWeight: "bold",
     titleFamily: "UbuntuMonoBold",
 
-    itemSize: 18,
-    itemWeight: "normal",
-    itemFamily: "UbuntuMono-Regular",
+    itemSize: 20,
+    itemFamily: "UbuntuMonoRegular",
 }

@@ -18,13 +18,11 @@ export const styles = StyleSheet.create({
     },
     item: {
         fontSize: fonts.itemSize,
-        fontWeight: fonts.itemWeight,
         fontFamily: fonts.itemFamily,
         color: colors.lightText,
     },
     input: {
         fontSize: fonts.inputSize,
-        fontWeight: fonts.inputWeight,
         color: colors.primary,
         borderBottomColor: colors.primary,
         borderBottomWidth: textInputs.borderBottomWidth,

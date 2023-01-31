@@ -11,8 +11,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: fonts.titleSize,
-    fontWeight: fonts.titleWeight,
+    fontFamily: fonts.titleFamily,
     color: colors.darkText,
-    fontFamily: fonts.titleFamily
   },
 });
