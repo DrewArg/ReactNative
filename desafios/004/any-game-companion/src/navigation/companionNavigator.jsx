@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { BoardGames, Home } from '../screens/index';
+import { BoardGames, GameDetail, Home } from '../screens/index';
 import { screenOptions } from './screenOptions';
 
 const Stack = createNativeStackNavigator();
@@ -25,10 +25,9 @@ const CompanionNavigator = () => {
           headerShown: true,
         }}
       />
-
-
-
-      {/* <Stack.Screen name='GameDetail' component={null} /> */}
+      <Stack.Screen name='GameDetail' component={GameDetail} options={{
+        headerShown: true,
+      }} />
 
     </Stack.Navigator >
   );
