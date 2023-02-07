@@ -1,17 +1,29 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { Home } from '../screens/index';
+import { BoardGames, Home } from '../screens/index';
+import { THEME } from '../constants/theme';
+
 
 const Stack = createNativeStackNavigator();
 
 const ShopNavigator = () => {
   return (
     <Stack.Navigator
-      initialRouteName="BoardGames"
+      initialRouteName="BoardGames" screenOptions={{
+        headerStyle: {
+          backgroundColor: THEME.colors.white,
+        },
+        headerTintColor: THEME.colors.primary,
+        navigationBarColor: THEME.colors.secondary,
+        headerTitleStyle: {
+          fontSize: 18,
+          color: THEME.colors.title,
+        },
+      }}
     >
       <Stack.Screen
         name="BoardGames"
-        component={Home}
+        component={BoardGames}
         options={{
           headerShown: true,
         }}
@@ -19,7 +31,7 @@ const ShopNavigator = () => {
 
       {/* <Stack.Screen name='GameDetail' component={null} /> */}
 
-    </Stack.Navigator>
+    </Stack.Navigator >
   );
 };
 
