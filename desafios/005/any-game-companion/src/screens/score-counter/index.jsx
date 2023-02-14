@@ -4,17 +4,19 @@ import { useState } from "react";
 
 const ScoreCounter = ({ navigation }) => {
 
-    const [text, onChangeText] = useState("")
+    const [qty, onChangeQty] = useState("")
 
     const handlePlayers = () => {
-        navigation.navigate('Juegos')
+        navigation.navigate('Players'), {
+            playerQty: qty
+        }
     }
 
     return (
         <View>
             <Text>Juego por Defecto</Text>
             <Text>Cantidad de Jugadores</Text>
-            <TextInput keyboardType="numeric" value={text} onChangeText={onChangeText} />
+            <TextInput keyboardType="numeric" value={qty} onChangeText={onChangeQty} />
             <Button onPress={handlePlayers} title={"Jugar!"} />
         </View>
     )

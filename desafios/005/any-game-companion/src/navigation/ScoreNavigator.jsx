@@ -1,33 +1,35 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { BoardGames, GameDetail } from "../screens"
+import PlayerListContainer from "../container/player-container"
+import { ScoreCounter } from "../screens"
 import { screenOptions } from "./screenOptions"
 
 const Stack = createNativeStackNavigator()
 
-const GamesNavigator = () => {
+const ScoreNavigator = () => {
     return (
         <Stack.Navigator
-            initialRouteName="Games"
+            initialRouteName="ScoreCounter"
             screenOptions={
                 screenOptions
             }>
+
             <Stack.Screen
-                name="Games"
-                component={BoardGames}
+                name="ScoreCounter"
+                component={ScoreCounter}
                 options={() => ({
+
                 })} />
+
 
             <Stack.Screen
-                name="GameDetail"
-                component={GameDetail}
+                name="Players"
+                component={PlayerListContainer}
                 options={({ route }) => ({
-                    gameId: route.params.gameId,
-                    title: route.params.title
+                    // playerQty: route.params.playerQty
                 })} />
-
 
         </Stack.Navigator>
     )
 }
 
-export default GamesNavigator
+export default ScoreNavigator

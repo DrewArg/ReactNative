@@ -2,7 +2,7 @@ import Ionicons from '@expo/vector-icons/Ionicons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { Home } from '../screens'
 import GamesNavigator from './GamesNavigator'
-import { ScoreCounter } from '../screens/index.js'
+import ScoreNavigator from './ScoreNavigator'
 
 const BottomTab = createBottomTabNavigator()
 
@@ -56,7 +56,7 @@ const Tabs = () => {
 
             <BottomTab.Screen
                 name='Scores'
-                component={ScoreCounter}
+                component={ScoreNavigator}
                 options={{
                     headerShown: true,
                     title: "Puntajes",
