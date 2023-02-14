@@ -1,7 +1,8 @@
 import Ionicons from '@expo/vector-icons/Ionicons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { BoardGames, Home } from '../screens'
+import { Home } from '../screens'
 import GamesNavigator from './GamesNavigator'
+import { ScoreCounter } from '../screens/index.js'
 
 const BottomTab = createBottomTabNavigator()
 
@@ -24,7 +25,7 @@ const Tabs = () => {
                 name='home'
                 component={Home}
                 options={{
-                    title: 'Home',
+                    title: 'Any Game Companion',
                     tabBarIcon: ({ focused }) => (
                         <Ionicons
                             name={focused ? 'home' : 'home-outline'}
@@ -45,6 +46,23 @@ const Tabs = () => {
                     tabBarIcon: ({ focused }) => (
                         <Ionicons
                             name={focused ? 'file-tray' : 'file-tray-outline'}
+                            size={25}
+                            color="black"
+                        />
+                    )
+
+                }}
+            />
+
+            <BottomTab.Screen
+                name='Scores'
+                component={ScoreCounter}
+                options={{
+                    headerShown: true,
+                    title: "Puntajes",
+                    tabBarIcon: ({ focused }) => (
+                        <Ionicons
+                            name={focused ? 'football' : 'football-outline'}
                             size={25}
                             color="black"
                         />
