@@ -1,9 +1,9 @@
-import { createStore, combineReducers } from 'redux'
+import { createStore, combineReducers } from 'redux';
 
-import { boardGameReducer } from './reducers'
+import { boardGameReducer } from './reducers';
 
 const rootReducer = combineReducers({
-    boardGames: boardGameReducer
-})
+  boardGames: boardGameReducer,
+});
 
-export default createStore(rootReducer)
+export default createStore(rootReducer);

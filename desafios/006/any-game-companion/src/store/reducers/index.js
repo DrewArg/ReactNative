@@ -1,1 +1,1 @@
-export { default as boardGameReducer } from './boardGame.reducer'
+export { default as boardGameReducer } from './boardGame.reducer';
