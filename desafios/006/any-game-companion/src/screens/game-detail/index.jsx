@@ -1,11 +1,17 @@
 import React from "react"
 import { Text, View } from "react-native";
-import { BOARD_GAMES } from "../../constants/data";
+import { useSelector, useDispatch } from 'react-redux';
+import { selectBoardGame } from "../../store/actions/boardGame.action";
 
 const GameDetail = ({ route }) => {
-    const { gameId, title } = route.params;
+    const dispatch = useDispatch();
+    const boardGames = useSelector((state)=>state.boardGames.boardGames
+    )
+    const { gameId } = route.params;
 
-    const currentGame = BOARD_GAMES.find((game) => game.id === gameId)
+    const foundGame = dispatch(selectBoardGame(gameId))
+    
+    const currentGame = boardGames.find((game) => game.id === foundGame.gameId)
 
     return (
         <View>

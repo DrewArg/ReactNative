@@ -1,15 +1,19 @@
 import React from "react"
 import { FlatList, SafeAreaView } from "react-native"
-import { BOARD_GAMES } from "../../constants/data/index"
+import { useSelector, useDispatch } from 'react-redux';
 import { GameItem } from "../../components"
+import { selectBoardGame } from "../../store/actions/boardGame.action";
 
 
 const BoardGames = ({ navigation }) => {
 
+    const dispatch = useDispatch()
+    const boardGames = useSelector((state)=>state.boardGames.boardGames)
+
     const onSelected = (item) => {
+        dispatch(selectBoardGame(item.id))
         navigation.navigate("GameDetail", {
-            gameId: item.id,
-            title: item.title
+            gameId: item.id
         })
     }
 
@@ -20,7 +24,7 @@ const BoardGames = ({ navigation }) => {
     return (
         <SafeAreaView >
             <FlatList
-                data={BOARD_GAMES}
+                data={boardGames}
                 renderItem={renderGame}
                 keyExtractor={keyExtractor}
             />
