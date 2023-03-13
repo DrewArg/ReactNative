@@ -1,5 +1,5 @@
 import React from "react"
-import { FlatList, SafeAreaView } from "react-native"
+import { Button, FlatList, SafeAreaView } from "react-native"
 import { useSelector, useDispatch } from 'react-redux';
 import { GameItem } from "../../components"
 import { selectBoardGame } from "../../store/actions/boardGame.action";
@@ -8,7 +8,7 @@ import { selectBoardGame } from "../../store/actions/boardGame.action";
 const BoardGames = ({ navigation }) => {
 
     const dispatch = useDispatch()
-    const boardGames = useSelector((state)=>state.boardGames.boardGames)
+    const boardGames = useSelector((state) => state.boardGames.boardGames)
 
     const onSelected = (item) => {
         dispatch(selectBoardGame(item.id))
@@ -28,7 +28,6 @@ const BoardGames = ({ navigation }) => {
                 renderItem={renderGame}
                 keyExtractor={keyExtractor}
             />
-
         </SafeAreaView>
     )
 

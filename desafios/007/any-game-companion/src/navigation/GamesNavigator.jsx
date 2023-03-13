@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { BoardGames, GameDetail } from "../screens"
+import { BoardGames, CaptureGame, GameDetail } from "../screens"
 import { screenOptions } from "./screenOptions"
 
 const Stack = createNativeStackNavigator()
@@ -24,6 +24,8 @@ const GamesNavigator = () => {
                     gameId: route.params.gameId,
                     title: route.params.title
                 })} />
+
+            <Stack.Screen name="CaptureGame" component={CaptureGame} options={{ title: "Mapa" }} />
 
 
         </Stack.Navigator>
