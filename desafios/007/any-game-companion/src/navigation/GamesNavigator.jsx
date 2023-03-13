@@ -25,7 +25,7 @@ const GamesNavigator = () => {
                     title: route.params.title
                 })} />
 
-            <Stack.Screen name="CaptureGame" component={CaptureGame} options={{ title: "Mapa" }} />
+            <Stack.Screen name="CaptureGame" component={CaptureGame} options={{ title: "Carga de Imágen" }} />
 
 
         </Stack.Navigator>

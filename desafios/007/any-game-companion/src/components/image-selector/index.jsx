@@ -1,6 +1,7 @@
 import * as ImagePicker from "expo-image-picker"
 import React, { useState } from "react"
 import { View, Image, Text, Alert, Button } from "react-native"
+import { styles } from "../header/styles"
 
 const ImageSelector = ({ onImage }) => {
     const [pickedUrl, setPickedUrl] = useState(null)
@@ -16,16 +17,27 @@ const ImageSelector = ({ onImage }) => {
     }
 
     const onHandleTakeImage = async () => {
-        const isCameraPermission = await verifyPermissions();
-        if (!isCameraPermission) return
+        try {
+            const isCameraPermission = await verifyPermissions();
+            if (!isCameraPermission) return
 
-        const image = await ImagePicker.launchCameraAsync({
-            aspect: [16, 9],
-            quality: 0.7
-        })
+            const image = await ImagePicker.launchCameraAsync({
+                aspect: [16, 9],
+                quality: 0.7
+            })
 
-        setPickedUrl(image.uri)
-        onImage(image.uri)
+            setPickedUrl(image.assets[0].uri)
+            onImage(image.assets[0].uri)
+            console.log("image.assets[0].uri");
+            console.log(image.assets[0].uri)
+            console.log("image.assets[0]");
+            console.log(image.assets[0]);
+
+        } catch (error) {
+            console.log(error)
+        }
+
+
     }
 
     return (
@@ -33,8 +45,8 @@ const ImageSelector = ({ onImage }) => {
             <View>
                 {!pickedUrl ? (
                     <Text>No hay imagen seleccionada</Text>
-                ): (
-                    <Image source={{uri:pickedUrl}}/>
+                ) : (
+                    <Image source={{ uri: pickedUrl }} style={{width: 240, height: 135}} />
                 )}
             </View>
             <Button title="tomar foto" onPress={onHandleTakeImage} />

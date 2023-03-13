@@ -19,7 +19,6 @@ const CaptureGame = () => {
         <ScrollView>
             <View>
                 <ImageSelector onImage={onHandleImageSelect} />
-                <Button title={"guardar juego"} onPress={null} />
             </View>
         </ScrollView>
     )
