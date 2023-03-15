@@ -1,7 +1,6 @@
 import * as ImagePicker from "expo-image-picker"
 import React, { useState } from "react"
 import { View, Image, Text, Alert, Button } from "react-native"
-import { styles } from "../header/styles"
 
 const ImageSelector = ({ onImage }) => {
     const [pickedUrl, setPickedUrl] = useState(null)
@@ -28,11 +27,7 @@ const ImageSelector = ({ onImage }) => {
 
             setPickedUrl(image.assets[0].uri)
             onImage(image.assets[0].uri)
-            console.log("image.assets[0].uri");
-            console.log(image.assets[0].uri)
-            console.log("image.assets[0]");
-            console.log(image.assets[0]);
-
+          
         } catch (error) {
             console.log(error)
         }
