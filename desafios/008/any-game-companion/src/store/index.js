@@ -1,9 +1,14 @@
-import { createStore, combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+// import { configureStore } from '@reduxjs/toolkit';
 
-import { boardGameReducer } from './reducers';
+import boardGameReducer from './boardGame.slice';
 
-const rootReducer = combineReducers({
-  boardGames: boardGameReducer,
+export const store = configureStore({
+  reducer: {
+    boardGame: boardGameReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
-
-export default createStore(rootReducer);

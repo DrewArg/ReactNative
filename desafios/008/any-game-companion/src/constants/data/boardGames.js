@@ -15,7 +15,8 @@ export const BOARD_GAMES = [
         id: "003",
         title: "Munchkin",
         description: "En Munchkin los jugadores son aventureros haciendo lo que hacen mejor: matar, lootear y subir de nivel.",
-        playerQty: "3-6"
+        playerQty: "3-6",
+        url: "https://cdn.akamai.steamstatic.com/steam/apps/1722860/header.jpg?t=1678399975"
     },
     {
         id: "004",
