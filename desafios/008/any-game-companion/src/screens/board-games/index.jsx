@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { FlatList, SafeAreaView, Text } from "react-native"
 import { useSelector, useDispatch } from 'react-redux';
 import { AddBoardGameItem, GameItem } from "../../components"
-import { loadBoardGames } from "../../store/boardGame.slice"
+import { loadBoardGames, loadBoardGameById } from "../../store/boardGame.slice"
 
 const BoardGames = ({ navigation }) => {
 
@@ -10,7 +10,7 @@ const BoardGames = ({ navigation }) => {
     const boardGames = useSelector((state) => state.boardGame.boardGames)
 
     const onSelected = (item) => {
-        dispatch(selectBoardGame(item.id))
+        dispatch(loadBoardGameById(item.id))
         navigation.navigate("GameDetail", {
             gameId: item.id
         })

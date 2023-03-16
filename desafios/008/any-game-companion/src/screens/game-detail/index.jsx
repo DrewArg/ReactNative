@@ -1,37 +1,47 @@
 import { useNavigation } from "@react-navigation/native";
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Text, View, Button, Image } from "react-native";
 import { useSelector, useDispatch } from 'react-redux';
-import { loadBoardGames } from "../../store/boardGame.slice"
+import { loadBoardGameById } from "../../store/boardGame.slice"
 
 const GameDetail = ({ route }) => {
     const navigation = useNavigation()
     const dispatch = useDispatch();
-    const boardGames = useSelector((state) => state.boardGame.boardGames
-    )
+
+    const [loading, setLoading] = useState(true)
+
     const { gameId } = route.params;
 
-    const foundGame = dispatch(selectBoardGame(gameId))
+    const foundGame = dispatch(loadBoardGameById(gameId))
 
-    const currentGame = boardGames.find((game) => game.id === foundGame.gameId)
+    const boardGameDetail = useSelector((state) => state.boardGame.boardGameDetail
+    )
 
-    const addImage = () => {
-        navigation.navigate("CaptureGame");
-    }
+    // const currentGame = boardGames.find((game) => game.id === foundGame.gameId)
+
+    useEffect(() => {
+        if (boardGameDetail !== null) {
+            setLoading(false)
+        }
+    }, [boardGameDetail])
 
     return (
         <View>
-            {
-                currentGame.url
-                    ?
-                    <Image source={{ uri: currentGame.url }} style={{ width: 380, height: 215 }} />
-                    :
-                    <Button title="Agregar imagen.." onPress={() => addImage()}/>
+
+            {loading ?
+                <Text>Loading...</Text>
+                :
+
+                <>
+
+                    <Image source={{ uri: boardGameDetail.image }} style={{ width: 380, height: 215 }} />
+                    <Text>Id: {boardGameDetail.id}</Text>
+                    <Text>Title: {boardGameDetail.title}</Text>
+                    <Text>Description: {boardGameDetail.description}</Text>
+                    <Text>Players: {boardGameDetail.playerQty}</Text>
+                </>
             }
-            <Text>Id: {currentGame.id}</Text>
-            <Text>Title: {currentGame.title}</Text>
-            <Text>Description: {currentGame.description}</Text>
-            <Text>Players: {currentGame.playerQty}</Text>
+
 
 
         </View>

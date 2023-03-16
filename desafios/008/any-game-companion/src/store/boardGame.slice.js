@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { insertBoardGame, getBoardGames } from '../db';
+import { insertBoardGame, getBoardGames, getById } from '../db';
 import * as FileSystem from 'expo-file-system';
 
 import BoardGame from '../models/boardGame';
 
 const initialState = {
   boardGames: [],
+  boardGameDetail: null,
 };
 
 const boardGameSlice = createSlice({
@@ -27,20 +28,27 @@ const boardGameSlice = createSlice({
     setBoardGames: (state, action) => {
       state.boardGames = action.payload;
     },
+
+    setBoardGameDetail: (state, action) => {
+      let payload = action.payload;
+      state.boardGameDetail = {
+        id: payload.id,
+        title: payload.title,
+        description: payload.description,
+        playerQty: payload.playerQty,
+        image: payload.image,
+      };
+    },
   },
 });
 
-export const { addBoardGame, setBoardGames } = boardGameSlice.actions;
+export const { addBoardGame, setBoardGames, setBoardGameDetail } = boardGameSlice.actions;
 
 export const saveBoardGame = (title, description, playerQty, image) => {
   return async (dispatch) => {
     try {
       const fileName = image.split('/').pop();
       const Path = FileSystem.documentDirectory + fileName;
-      // console.log(title);
-      // console.log(description);
-      // console.log(playerQty);
-      // console.log(image);
 
       await FileSystem.moveAsync({
         from: image,
@@ -62,6 +70,27 @@ export const loadBoardGames = () => {
       dispatch(setBoardGames(result?.rows?._array));
     } catch (error) {
       console.error('error: ', error);
+      throw error;
+    }
+  };
+};
+
+export const loadBoardGameById = (id) => {
+  return async (dispatch) => {
+    try {
+      const result = await getById(id);
+      console.log(result);
+      dispatch(
+        setBoardGameDetail({
+          id: result.id,
+          title: result.title,
+          description: result.description,
+          playerQty: result.playerQty,
+          image: result.image,
+        })
+      );
+    } catch (error) {
+      console.error(error);
       throw error;
     }
   };

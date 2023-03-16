@@ -53,3 +53,23 @@ export const getBoardGames = () => {
 
   return promise;
 };
+
+export const getById = (id) => {
+  const promise = new Promise((resolve, reject) => {
+    db.transaction((tx) => {
+      tx.executeSql(
+        'SELECT * FROM bgames where id = ?;',
+        [id],
+        (_, result) => {
+          resolve(result.rows._array[0]);
+        },
+        (_, error) => {
+          console.log('error: ' + error);
+          reject(error);
+        }
+      );
+    });
+  });
+
+  return promise;
+};
