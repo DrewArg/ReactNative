@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { FlatList, SafeAreaView } from "react-native"
+import { FlatList, SafeAreaView, Text } from "react-native"
 import { useSelector, useDispatch } from 'react-redux';
 import { AddBoardGameItem, GameItem } from "../../components"
 import { loadBoardGames } from "../../store/boardGame.slice"
@@ -26,15 +26,23 @@ const BoardGames = ({ navigation }) => {
 
     return (
         <SafeAreaView >
-            {boardGames.length > 0 ?
-                <FlatList
-                    data={boardGames}
-                    renderItem={renderGame}
-                    keyExtractor={keyExtractor}
-                />
 
+            {boardGames.length > 0 ?
+                <>
+                    <Text>Lista de juegos</Text>
+                    <FlatList
+                        data={boardGames}
+                        renderItem={renderGame}
+                        keyExtractor={keyExtractor}
+                    />
+                    <Text>Agregar Otro</Text>
+                    <AddBoardGameItem />
+                </>
                 :
-                <AddBoardGameItem />
+                <>
+                    <Text>Agregar Juego nuevo</Text>
+                    <AddBoardGameItem />
+                </>
             }
 
         </SafeAreaView>

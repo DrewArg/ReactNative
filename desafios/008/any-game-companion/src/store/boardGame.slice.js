@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 import { insertBoardGame, getBoardGames } from '../db';
+import * as FileSystem from 'expo-file-system';
 
 import BoardGame from '../models/boardGame';
 
@@ -34,8 +35,18 @@ export const { addBoardGame, setBoardGames } = boardGameSlice.actions;
 export const saveBoardGame = (title, description, playerQty, image) => {
   return async (dispatch) => {
     try {
-      const result = await insertBoardGame(title, description, playerQty, image);
+      const fileName = image.split('/').pop();
+      const Path = FileSystem.documentDirectory + fileName;
+      // console.log(title);
+      // console.log(description);
+      // console.log(playerQty);
+      // console.log(image);
 
+      await FileSystem.moveAsync({
+        from: image,
+        to: Path,
+      });
+      const result = await insertBoardGame(title, description, playerQty, Path);
       dispatch(addBoardGame({ id: result.insertId, title, description, playerQty, image }));
     } catch (error) {
       console.error('error: ', error);
@@ -56,4 +67,4 @@ export const loadBoardGames = () => {
   };
 };
 
-export default boardGameSlice.reducer
+export default boardGameSlice.reducer;

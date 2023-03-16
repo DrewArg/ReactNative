@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { saveBoardGame } from '../../store/boardGame.slice'
 import ImageSelector from '../image-selector'
 
-const addBoardGameItem = ({ navigation }) => {
+const addBoardGameItem = () => {
     const dispatch = useDispatch()
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
@@ -29,7 +29,7 @@ const addBoardGameItem = ({ navigation }) => {
 
     const onHandleSubmit = () => {
         dispatch(saveBoardGame(title, description, playerQty, image))
-        navigation.navigate("BoardGames")
+
     }
 
     return (
@@ -51,7 +51,7 @@ const addBoardGameItem = ({ navigation }) => {
                     value={playerQty}
                 />
                 <ImageSelector onImage={onHandleImageSelect} />
-                <Button title='Guardar juego' onPress={onHandleSubmit}/>
+                <Button title='Guardar juego' onPress={onHandleSubmit} />
             </View>
         </ScrollView>
     )
